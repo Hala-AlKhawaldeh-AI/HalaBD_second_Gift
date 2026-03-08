@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🩷 Happy Birthday Hala 🎀</title>
+    <meta name="description" content="A cute birthday surprise for Hala!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Tajawal:wght@400;500;700;800;900&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Glitter canvas background -->
+    <canvas id="glitterCanvas"></canvas>
+
+    <!-- Intro overlay -->
+    <div class="intro-overlay" id="introOverlay">
+        <div class="intro-content">
+            <div class="intro-emoji-ring">
+                <span>🩷</span><span>🎀</span><span>✨</span><span>🌸</span><span>💖</span><span>🎀</span>
+            </div>
+            <p class="intro-name">هالة</p>
+            <p class="intro-subtitle">عندك مفاجأة 🩷</p>
+            <button class="intro-btn" id="introBtn" onclick="enterSite()">
+                افتحي المفاجأة 🎀
+            </button>
+        </div>
+    </div>
+
+    <!-- Floating emojis background -->
+    <div class="floating-emojis" id="floatingEmojis"></div>
+    <!-- Hearts rain -->
+    <div class="hearts-rain" id="heartsRain"></div>
+    <!-- Fireworks container -->
+    <div class="fireworks-container" id="fireworksContainer"></div>
+    <!-- Sparkle cursor trail -->
+    <div id="sparkleContainer"></div>
+
+    <main class="container" id="mainContent">
+        <!-- Hero Section -->
+        <section class="hero" id="heroSection">
+            <div class="ribbon-top">🎀</div>
+            <div class="hero-glow"></div>
+            <div class="age-badge">
+                <span class="countdown" id="countdown"></span>
+            </div>
+            <h1 class="title">
+                <span class="title-line script">Happy Birthday</span>
+                <span class="title-line name">هالة</span>
+                <span class="title-line nickname">🩷 زعرتي 🩷</span>
+            </h1>
+            <p class="subtitle">March 9th 🎂</p>
+            <div class="heart-divider">🩷 🎀 🩷 🎀 🩷</div>
+        </section>
+
+        <!-- Live Countdown Section -->
+        <section class="countdown-section" id="countdownSection">
+            <h2 class="section-title">⏳ العد التنازلي ليومك</h2>
+            <div class="countdown-grid">
+                <div class="countdown-box">
+                    <span class="countdown-num" id="cdDays">0</span>
+                    <span class="countdown-label">يوم</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-num" id="cdHours">0</span>
+                    <span class="countdown-label">ساعة</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-num" id="cdMinutes">0</span>
+                    <span class="countdown-label">دقيقة</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-num" id="cdSeconds">0</span>
+                    <span class="countdown-label">ثانية</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Birthday Cake Section -->
+        <section class="cake-section" id="cakeSection">
+            <h2 class="section-title">🎂 كيكتك يا زعرة</h2>
+            <div class="cake-wrapper">
+                <div class="cake">
+                    <div class="candles">
+                        <div class="candle"><div class="flame" id="flame1"></div></div>
+                        <div class="candle"><div class="flame" id="flame2"></div></div>
+                        <div class="candle"><div class="flame" id="flame3"></div></div>
+                    </div>
+                    <div class="cake-top"></div>
+                    <div class="cake-middle"></div>
+                    <div class="cake-bottom"></div>
+                    <div class="cake-plate"></div>
+                </div>
+            </div>
+            <button class="blow-btn" id="blowBtn" onclick="blowCandles()">
+                🌬️ اطفي الشموع!
+            </button>
+            <p class="blow-wish" id="blowWish"></p>
+        </section>
+
+        <!-- Gift Box Section -->
+        <section class="gift-section" id="giftSection">
+            <h2 class="section-title">🎁 هديتك يا قمر</h2>
+            <div class="gift-box-wrapper" id="giftBoxWrapper" onclick="openGift()">
+                <div class="gift-box" id="giftBox">
+                    <div class="gift-lid" id="giftLid">
+                        <div class="gift-bow">🎀</div>
+                    </div>
+                    <div class="gift-base">
+                        <div class="gift-ribbon-v"></div>
+                        <div class="gift-ribbon-h"></div>
+                    </div>
+                </div>
+                <p class="gift-hint">اضغطي لفتح الهدية!</p>
+            </div>
+            <div class="gift-message" id="giftMessage">
+                <div class="gift-message-inner">
+                    <span class="gift-msg-emoji">👑</span>
+                    <p class="gift-msg-text">انتي هديتي بالحياة يا هالة!<br>كل يوم معك هدية 🩷</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Traits Section -->
+        <section class="traits-section" id="traitsSection">
+            <h2 class="section-title">⭐ أشياء تميزك يا هالة</h2>
+            <div class="traits-grid">
+                <div class="trait-card" style="--delay: 0s">
+                    <span class="trait-icon">😊</span>
+                    <p>ابتسامتك المعدية</p>
+                </div>
+                <div class="trait-card" style="--delay: 0.1s">
+                    <span class="trait-icon">💪</span>
+                    <p>شخصيتك القوية</p>
+                </div>
+                <div class="trait-card" style="--delay: 0.2s">
+                    <span class="trait-icon">🩷</span>
+                    <p>قلبك الطيب</p>
+                </div>
+                <div class="trait-card" style="--delay: 0.3s">
+                    <span class="trait-icon">✨</span>
+                    <p>روحك الحلوة</p>
+                </div>
+                <div class="trait-card" style="--delay: 0.4s">
+                    <span class="trait-icon">🌟</span>
+                    <p>نورك اللي يضوي</p>
+                </div>
+                <div class="trait-card" style="--delay: 0.5s">
+                    <span class="trait-icon">🦋</span>
+                    <p>خفة دمك</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message Button Section -->
+        <section class="message-section" id="messageSection">
+            <h2 class="section-title">✨ كلمة حلوة لك</h2>
+            <p class="prompt-text">كل ضغطة = كلمة من القلب 🩷</p>
+            <button class="magic-button" id="magicBtn" onclick="showSurprise()">
+                <span class="btn-emoji">🎀</span>
+                <span class="btn-text">اضغطيني!</span>
+                <span class="btn-emoji">🎀</span>
+            </button>
+            <div class="message-card" id="messageCard">
+                <div class="card-inner">
+                    <span class="card-emoji" id="cardEmoji">🩷</span>
+                    <p class="card-message" id="cardMessage"></p>
+                </div>
+            </div>
+            <div class="click-counter">
+                <span id="clickCount">0</span> كلمة حلوة 🩷
+            </div>
+        </section>
+
+        <!-- Love Letter Section (Personal Speech) -->
+        <section class="letter-section" id="letterSection">
+            <h2 class="section-title">💌 رسالة من القلب</h2>
+            <div class="letter-envelope" id="envelope" onclick="openLetter()">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <span class="envelope-heart">🩷</span>
+                    <p class="envelope-text">اضغطي لفتح الرسالة</p>
+                </div>
+            </div>
+            <div class="letter-paper" id="letterPaper">
+                <div class="letter-content">
+                    <p class="letter-greeting">هالة حبيبتي.. 🩷</p>
+                    <p class="letter-body">
+                        انتي احلى حدا بحياتي، الله يحفظك الي يارب ويديمك الي يارب.
+                        <br><br>
+                        احلى حدا عيد ميلاده اجا، احلى بنوتة واحلى حنونة، واحلى انثى 🎀
+                        <br><br>
+                        كل عام وانتي بخير يارب وكل سنة وانتي طيبة...
+                        <br><br>
+                        احلى صديقة ورفيقة درب 🩷
+                        <br><br>
+                        يارب هالسنة تكون أحلى سنة بحياتك، تتحقق فيها كل أحلامك وكل اللي تتمنيه. تستاهلين كل الخير والسعادة والحب يا زعرتي.
+                        <br><br>
+                        الدنيا ما تحلى إلا بوجودك فيها، ربي يسعدك يا أغلى إنسانة ويحقق لك كل اللي بقلبك 🩷🎀
+                    </p>
+                    <p class="letter-sign">بحبك يا زعرتي 🩷🎀</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wishes Section -->
+        <section class="wishes-section" id="wishesSection">
+            <h2 class="section-title">🌸 أمنيات لك</h2>
+            <div class="wish-card">
+                <span class="wish-emoji">✨</span>
+                <p>كل سنة وانتي أحلى وأجمل يا زعرة</p>
+            </div>
+            <div class="wish-card">
+                <span class="wish-emoji">💖</span>
+                <p>يارب يحقق لك كل اللي تتمنيه</p>
+            </div>
+            <div class="wish-card">
+                <span class="wish-emoji">🌸</span>
+                <p>عقبال مية سنة يا أحلى هالة</p>
+            </div>
+            <div class="wish-card">
+                <span class="wish-emoji">🎀</span>
+                <p>يارب دايماً تكونين بأحلى حال</p>
+            </div>
+            <div class="wish-card">
+                <span class="wish-emoji">🦋</span>
+                <p>السنة هذي سنتك يا قمر</p>
+            </div>
+            <div class="wish-card">
+                <span class="wish-emoji">👑</span>
+                <p>تستاهلين كل شي حلو بالدنيا</p>
+            </div>
+            <div class="wish-card">
+                <span class="wish-emoji">🌷</span>
+                <p>يارب يملأ قلبك فرح ما ينتهي</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-hearts">🩷 🎀 🩷</div>
+            <p>Made with 🩷 for the cutest زعرة</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
